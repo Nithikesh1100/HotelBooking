@@ -1,0 +1,51 @@
+.hotels{
+    display: flex;
+    /* height: 70vh;  */
+    margin:30px;
+    padding: 20px;
+    gap: 20px;
+}
+
+.filter-section{
+    width: 20%;
+    border: 1px solid black;
+    padding: 20px;
+    height: 50vh;
+}
+
+.hotel-section{
+    border: 1px solid white;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.hotel-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust the gap as needed */
+    padding: 20px; /* Optional: add some padding around the grid */
+    margin-left: 60px;
+  }
+
+
+
+
+
+.search{
+    width: 80%;
+    
+    /* border-radius: 20px; */
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.search-input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid black;
+}

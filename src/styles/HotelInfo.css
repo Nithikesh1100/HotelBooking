@@ -1,0 +1,93 @@
+.container {
+    font-family: Arial, sans-serif;
+    padding: 50px;
+    width: 80%;
+    margin: 40px auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    background-color: rgba(255,255,255,0.9);
+}
+
+.carousel-container {
+    flex: 1;
+    max-width: 40%; /* Adjust carousel width */
+}
+
+.info-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the tiles vertically */
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 20px;
+    color: #555;
+}
+
+.location {
+    font-size: 16px;
+    color: #777;
+}
+
+.address {
+    font-size: 14px;
+    color: #888;
+}
+
+.carousel .slide img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.description {
+    font-size: 16px;
+    color: black;
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.facilities {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.facility {
+    display: inline-block;
+    background: #eee;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: black;
+}
+
+.rating {
+    font-size: 16px;
+    color: #f39c12;
+    margin-top: 10px;
+}
+
+.discount {
+    font-size: 16px;
+    color: #27ae60;
+    margin-top: 10px;
+}
+
+

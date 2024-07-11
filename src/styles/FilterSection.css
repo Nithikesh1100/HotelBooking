@@ -1,0 +1,66 @@
+.filter-section {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+  }
+  
+  .filter-section h2 {
+    margin-bottom: 10px;
+  }
+  
+  .filter-city,
+  .filter-state,
+  .filter-price {
+    margin-bottom: 15px;
+  }
+  
+  .filter-city form,
+  .filter-state form,
+  .filter-price form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .city-select,
+  .state-select {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+  }
+  
+  .filter-price input[type="range"] {
+    width: 100%;
+    margin-top: 5px;
+  }
+  
+  .filter-price label {
+    margin-bottom: 5px;
+  }
+
+  .clear-btn{
+    margin-top: 30px;
+    
+    display: flex;
+    justify-content: center;
+  }
+  
+  .button {
+    color: red;           /* Text color */
+    border: 1px solid red; /* Border color and style */
+    padding: 10px 20px;   /* Padding inside the button */
+    background-color: transparent; /* Transparent background */
+    cursor: pointer;      /* Cursor style */
+    font-size: 12px;      /* Font size */
+    text-transform: uppercase; 
+    transition: all 0.3s ease; /* Smooth transition */
+    border-radius: 5px;
+  }
+  
+  .button:hover {
+    background-color: red; /* Background color on hover */
+    color: white;           /* Text color on hover */
+  }
+  
