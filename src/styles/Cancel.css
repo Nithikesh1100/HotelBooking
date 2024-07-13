@@ -1,0 +1,37 @@
+/* src/components/Cancel.css */
+.cancel-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #f8f9fa;
+    color: #343a40;
+    padding: 20px;
+}
+
+.cancel-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.cancel-container p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+.home-link {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #dc3545;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.home-link:hover {
+    background-color: #c82333;
+}

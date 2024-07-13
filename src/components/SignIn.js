@@ -1,26 +1,40 @@
+// src/components/Signin.js
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../styles/SignIn.css';  // Import the CSS file
-import {useNavigate} from 'react-router-dom'
+import '../styles/SignIn.css';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { signin } from '../Reducers/authSlice';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Signin = () => {
-    const [email, setEmail] = useState('');
+    const [identifier, setIdentifier] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
-    const [token, setToken] = useState('');
-
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleSignin = async (e) => {
         e.preventDefault();
+
+        if (identifier === '' || password === '') {
+            setMessage('Enter both the credentials');
+            toast.error('Enter both the credentials');
+            return;
+        }
+
         try {
-            const res = await axios.post('http://localhost:3000/api/auth/signin', { email, password });
-            setToken(res.data.token);
+            const res = await axios.post('http://localhost:3000/api/auth/signin', {identifier, password });
+            dispatch(signin(res.data.token));
+            localStorage.setItem('username', res.data.username);
             setMessage('Signin successful');
-            navigate('/hotels');  // Redirect to the dashboard page after successful signin
-            localStorage.setItem('token', res.data.token);
+            
+            toast.success('Signin successful');
+            navigate('/');
         } catch (err) {
             setMessage(err.response.data.message);
+            toast.error(err.response.data.message);
         }
     };
 
@@ -30,9 +44,9 @@ const Signin = () => {
             <form onSubmit={handleSignin} className="signin-form">
                 <input
                     type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Username or Email"
+                    value={identifier}
+                    onChange={(e) => setIdentifier(e.target.value)}
                     className="signin-input"
                 />
                 <input
@@ -50,3 +64,4 @@ const Signin = () => {
 };
 
 export default Signin;
+

@@ -68,6 +68,7 @@ const initialState = {
     maxPrice: maxPrice,
     minPrice: minPrice,
   },
+  isAuthenicated: false,
 };
 
 const filterReducer = (state = initialState, action) => {

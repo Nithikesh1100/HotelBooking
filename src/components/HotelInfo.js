@@ -6,11 +6,56 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import '../styles/HotelInfo.css';
 import HotelData from '../hotelsdata';
+import { loadStripe } from '@stripe/stripe-js';
+// import {useNavigate} from 'react-router-dom';
+
+const stripePromise = loadStripe('pk_test_51PbloSFNweSIly0ti4T7ykauTOaqqykE6ftANKaI8NgqmRC4cuPLK2kWd0GOdlfKG856ICqaVBq58u5UAJWcINM000dnZlbi3a');
+
 
 // HotelInfo Component
 const HotelInfo = () => {
   const { id } = useParams();
   const hotel = HotelData.find(h => h.id === parseInt(id));
+  // const navigate = useNavigate();
+  
+  const data={
+    name:hotel.hotelname,
+    chain:hotel.hotelchainname,
+    price:hotel.price,
+  };
+
+  // console.log(data);
+
+  //payment method
+  const handleBookNow = async() => {
+    // navigate(`/payment/${id}`, { state: { amount: hotel.price } });
+    // const stripe = loadStripe('pk_test_51PbloSFNweSIly0ti4T7ykauTOaqqykE6ftANKaI8NgqmRC4cuPLK2kWd0GOdlfKG856ICqaVBq58u5UAJWcINM000dnZlbi3a');
+    const stripe = await stripePromise;
+    const body={
+      product:data
+    }
+
+    const headers={
+      'Content-Type': 'application/json'
+    }
+
+    const response=await fetch('http://localhost:3000/api/payment/create-checkout-session',{
+      method:'POST',
+      headers:headers,
+      body:JSON.stringify(body)
+    });
+
+    const session=await response.json();
+
+    const result= stripe.redirectToCheckout({
+      sessionId: session.id,
+    });
+
+    if (result.error) {
+      console.log('Error:', result.error.message);
+    }
+
+  }; 
 
   if (!hotel) {
     return <div>Hotel not found</div>;
@@ -43,7 +88,7 @@ const HotelInfo = () => {
         <p className="rating">Rating: {hotel.rating} ({hotel.totalreviews} reviews)</p>
         {hotel.discount && <p className="discount">Discount available!</p>}
 
-        <div className="book-button">
+        <div className="book-button" onClick={handleBookNow}>
           <button>Book Now</button>
         </div>
   

@@ -10,6 +10,9 @@ import HotelInfo from './components/HotelInfo'
 import Signin from './components/SignIn'
 import Signup from './components/SignUp'
 
+import Cancel from './components/Cancel'
+import Success from './components/Success'
+
 
 const App = () => {
   return (
@@ -24,6 +27,9 @@ const App = () => {
         <Route path="/contact" element={<Contact/>} />
         <Route path="/signup" element={<Signup/>} />
         <Route path="/signin" element={<Signin/>} />
+        
+        <Route path="/success" element={<Success />} />
+        <Route path="/cancel" element={<Cancel />} />
       </Routes>
       <Footer />
     </div>

@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './Store';
 import { BrowserRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 
 
@@ -15,6 +16,7 @@ root.render(
     
     <BrowserRouter>
     <Provider store={store}>
+      <ToastContainer />
     <App />
     </Provider>
   </BrowserRouter>
